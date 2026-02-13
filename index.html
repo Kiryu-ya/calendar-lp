@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-
-body {
+body{
   margin:0;
-  overflow:hidden;
   font-family:sans-serif;
+  background:#f7f7f7;
 }
 
-iframe {
-  width:100vw;
-  height:94vh;
-  border:none;
+.container{
+  padding:20px;
+  text-align:center;
 }
 
-.nav {
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
-  padding:6px;
-  justify-content:center;
-  background:#f3f3f3;
+h1{
+  font-size:18px;
+  margin-bottom:20px;
 }
 
-.nav a {
-  padding:4px 7px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+a{
+  display:block;
+  padding:12px 0;
   background:#2b6cb0;
   color:white;
   text-decoration:none;
-  border-radius:4px;
-  font-size:11px;
+  border-radius:6px;
+  font-size:14px;
 }
-
-.nav a.top {
-  background:#e53e3e;
-}
-
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <a class="top" href="?gid=931057750">ご利用の前に</a>
+<div class="container">
+  <h1>日付を選択</h1>
+  <div class="grid" id="buttons"></div>
 </div>
-
-<iframe id="sheetFrame"></iframe>
 
 <script>
 
-const sheetBase =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vRJZJxJQXQQGUkJae4rXEN7gUUHyd-ehadE_vaQtoGPkjTA-AhrxcbuUlnEBMLVLS_2EeTW5IQaA5sd/pubhtml";
+const gidList = [
+1901508416,1042399163,670708944,5243443,1866782352,
+2137858847,1694147816,219291948,643435423,747669519,
+2101446126,1759200369,131027748,498877669,1675825650,
+1279799139,1078355815,242445909,943643371,1577395663,
+1058765745,226763993,1173427950,1380428083,257545758,
+546705546,1393676281,1296445308,2076250210,578361097,
+986910244
+];
 
-const params = new URLSearchParams(window.location.search);
-const gid = params.get("gid") || "931057750";
+const container = document.getElementById("buttons");
 
-document.getElementById("sheetFrame").src =
-`${sheetBase}?gid=${gid}&single=true&widget=true&headers=false`;
+for(let i=1;i<=31;i++){
+  container.innerHTML += 
+  `<a href="day.html?gid=${gidList[i-1]}">${i}日</a>`;
+}
 
 </script>
 
