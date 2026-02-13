@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <style>
+
 body {
   margin:0;
+  overflow:hidden;
   font-family:sans-serif;
 }
 
 iframe {
   width:100vw;
-  height:92vh;
+  height:94vh;
   border:none;
 }
 
 .nav {
   display:flex;
   flex-wrap:wrap;
-  gap:6px;
-  padding:8px;
+  gap:4px;
+  padding:6px;
   justify-content:center;
   background:#f3f3f3;
 }
 
 .nav a {
-  padding:8px 12px;
+  padding:4px 7px;
   background:#2b6cb0;
   color:white;
   text-decoration:none;
-  border-radius:6px;
-  font-size:14px;
+  border-radius:4px;
+  font-size:11px;
 }
+
 .nav a.top {
   background:#e53e3e;
 }
+
 </style>
 </head>
 <body>
 
 <div class="nav">
   <a class="top" href="?gid=931057750">ご利用の前に</a>
-  <script>
-    for(let i=1;i<=31;i++){
-      document.write(`<a href="?gid=${[
-1901508416,1042399163,670708944,5243443,1866782352,
-2137858847,1694147816,219291948,643435423,747669519,
-2101446126,1759200369,131027748,498877669,1675825650,
-1279799139,1078355815,242445909,943643371,1577395663,
-1058765745,226763993,1173427950,1380428083,257545758,
-546705546,1393676281,1296445308,2076250210,578361097,
-986910244][i-1]}">${i}日</a>`);
-    }
-  </script>
 </div>
 
 <iframe id="sheetFrame"></iframe>
 
 <script>
+
+const sheetBase =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vRJZJxJQXQQGUkJae4rXEN7gUUHyd-ehadE_vaQtoGPkjTA-AhrxcbuUlnEBMLVLS_2EeTW5IQaA5sd/pubhtml";
+
 const params = new URLSearchParams(window.location.search);
 const gid = params.get("gid") || "931057750";
 
 document.getElementById("sheetFrame").src =
-`https://docs.google.com/spreadsheets/d/e/2PACX-1vTMZDSJm2RC5iDDUijp2dZqVK6zv1PaimzkNp_iiD5GObWxWyCkohAlt29xeD8Q918Muts6pPRNa2GL/pubhtml?gid=${gid}&single=true&widget=true&headers=false`;
+`${sheetBase}?gid=${gid}&single=true&widget=true&headers=false`;
+
 </script>
 
 </body>
