@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#f7f7f7;
+}
+
+.container{
+  padding:20px;
+  text-align:center;
+}
+
+h1{
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+a{
+  display:block;
+  padding:12px 0;
+  background:#2b6cb0;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>日付を選択</h1>
+  <div class="grid" id="buttons"></div>
+</div>
+
+<script>
+
+const gidList = [
+1901508416,523315365,2071493494,2089461737,1643948097,
+1261022635,752598407,808072100,772065130,532046403,
+1842714630,1275467002,1869694748,1961294362,334441626,
+1408603493,923778001,426714063,303546159,2009191681,
+1029104495,765064240,776680059,139235824,208870734,
+635840551,1243054110,1472185175,1035361428,973056696,
+245042200
+];
+
+const container = document.getElementById("buttons");
+
+for(let i=1;i<=31;i++){
+  container.innerHTML += 
+  `<a href="day.html?gid=${gidList[i-1]}">${i}日</a>`;
+}
+
+</script>
+
+</body>
+</html>
