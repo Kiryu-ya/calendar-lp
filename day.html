@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  overflow:hidden;
+  font-family:sans-serif;
+}
+
+.topbar{
+  background:#f3f3f3;
+  padding:8px;
+  text-align:center;
+}
+
+.topbar a{
+  padding:6px 12px;
+  background:#e53e3e;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:13px;
+}
+
+iframe{
+  width:100vw;
+  height:92vh;
+  border:none;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">一覧に戻る</a>
+</div>
+
+<iframe id="sheetFrame"></iframe>
+
+<script>
+
+const baseUrl =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vRJZJxJQXQQGUkJae4rXEN7gUUHyd-ehadE_vaQtoGPkjTA-AhrxcbuUlnEBMLVLS_2EeTW5IQaA5sd/pubhtml";
+
+const params = new URLSearchParams(window.location.search);
+const gid = params.get("gid");
+
+document.getElementById("sheetFrame").src =
+`${baseUrl}?gid=${gid}&single=true&widget=true&headers=false`;
+
+</script>
+
+</body>
+</html>
