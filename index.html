@@ -7,62 +7,69 @@ body{
   margin:0;
   font-family:sans-serif;
   background:#f7f7f7;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
 
 .container{
   padding:20px;
-  text-align:center;
+  flex:1;
 }
 
 h1{
   font-size:18px;
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+p{
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:8px;
 }
 
-a{
+.footer{
+  padding:15px;
+  background:white;
+  position:sticky;
+  bottom:0;
+}
+
+.footer a{
   display:block;
-  padding:12px 0;
+  text-align:center;
+  padding:14px;
   background:#2b6cb0;
   color:white;
   text-decoration:none;
-  border-radius:6px;
-  font-size:14px;
+  border-radius:8px;
+  font-size:16px;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>日付を選択</h1>
-  <div class="grid" id="buttons"></div>
+<h1>御予約状況について</h1>
+
+<p>本ページをご覧いただきまして、ありがとうございます😌<br>
+利用に際しましていくつか注意点がございますのでご一読くださいますようお願いいたします！</p>
+
+<p><strong>御利用について</strong></p>
+
+<p>・当院はご予約優先制となります。</p>
+<p>・予約状況は随時更新しておりますが、反映に遅れが生じる場合がございます。</p>
+<p>・本ページの空き状況は、ご予約を確約するものではありません。</p>
+<p>・ご予約なく直接ご来院いただいた場合、状況によりご希望に添えないことがございます。</p>
+<p>・最終的なご予約の確定は、当院スタッフとのやり取りをもって完了となります。</p>
+<p>・当日および直前のご予約につきましては、空き表示があってもお受けできない場合がございます。</p>
+<p>・システムの仕様上、実際の予約状況と表示が異なる場合がございます。</p>
+<p>・スタッフの体調不良等の場合、ご予約変更をお願いする場合がございます。</p>
 </div>
 
-<script>
-
-const gidList = [
-1901508416,1042399163,670708944,5243443,1866782352,
-2137858847,1694147816,219291948,643435423,747669519,
-2101446126,1759200369,131027748,498877669,1675825650,
-1279799139,1078355815,242445909,943643371,1577395663,
-1058765745,226763993,1173427950,1380428083,257545758,
-546705546,1393676281,1296445308,2076250210,578361097,
-986910244
-];
-
-const container = document.getElementById("buttons");
-
-for(let i=1;i<=31;i++){
-  container.innerHTML += 
-  `<a href="day.html?gid=${gidList[i-1]}">${i}日</a>`;
-}
-
-</script>
+<div class="footer">
+  <a href="list.html">使ってみる</a>
+</div>
 
 </body>
 </html>
